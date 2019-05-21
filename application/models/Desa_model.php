@@ -1,8 +1,13 @@
 <?php
 
 class Desa_model extends CI_Model {
+
     public function getDesa(){
         return $this->db->get('warga')->result_array();
+    }
+
+    public function getPengumuman(){
+        return $this->db->get('pengumuman')->result_array();
     }
     // public function getDesa(){
     //     $sql = $this->db->query("SELECT*FROM warga");
