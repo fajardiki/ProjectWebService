@@ -19,7 +19,7 @@ class C_pengumuman extends REST_Controller
 	{
 		$desa = $this->desa->getPengumuman();
 		//var_dump($desa);
-		echo json_encode($desa);
+		echo json_encode(array('result'=>$desa));
 
 		// if ($desa) {
 		// 	$this->response([
