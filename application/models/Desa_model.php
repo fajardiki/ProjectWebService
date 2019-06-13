@@ -26,14 +26,9 @@ class Desa_model extends CI_Model {
         return $periksa->result();
     }
 
-    public function set_pengajuan($nik, $keperluan, $ksurat, $kk, $ktp){
+    public function set_pengajuan($nik, $keperluan, $ksurat, $kk, $ktp) {
         $insert = $this->db->query("INSERT INTO permohonan VALUES('$nik','','','','$kk','$ktp','$keperluan','$ksurat','admin','Diajukan')");
-
-        if ($insert->num_rows()>0) {
-                return 1;
-            } else {
-                return 0;
-            }
+        return $insert;
     }
 
     // public function getDesa(){
