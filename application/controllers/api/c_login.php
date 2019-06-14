@@ -20,19 +20,24 @@ class C_login extends REST_Controller
 		$password = $this->input->post("password");
 
 		$desa = $this->desa->getLogin($username, $password);
-		//var_dump($desa);
-		if ($desa) {
-			echo "1";
-		} else {
-			echo "0";
+		// $nikname = $this->desa->getnikname($username, $password);
+		foreach ($desa as $n) {
+			$nik = $n['nik'];
+			$nama = $n['nama'];
 		}
 
-		// if ($desa) {
-		// 	$this->response([
-  //                   'status' => true,
-  //                   'message' => 'Data ditemukan'
-  //               ], REST_Controller::HTTP_OK);
-			
-		// }
+		if ($desa) {
+			$result['login'] = array([
+				'nama' => $nama,
+				'username' => $username
+				]);
+			$result['success'] = "1";
+			$result['message'] = "success";
+			echo json_encode($result);
+		} else {
+			$result['success'] = "0";
+			$result['message'] = "error";
+			echo json_encode($result);
+		}
 	}
 }

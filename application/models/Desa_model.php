@@ -23,6 +23,12 @@ class Desa_model extends CI_Model {
     public function getLogin($username, $password){
         $periksa = $this->db->get_where('warga',array('username'=>$username, 'password'=>$password));
 
+        return $periksa->result_array();
+    }
+
+    public function getnikname($username, $password){
+        $periksa = $this->db->query("SELECT nik, nama FROM warga WHERE username='$username' AND password='$password'");
+
         return $periksa->result();
     }
 
