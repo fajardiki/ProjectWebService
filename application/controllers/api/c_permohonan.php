@@ -15,8 +15,11 @@ class C_permohonan extends REST_Controller {
 
 
 	public function index_get() {
-		$desa = $this->desa->getPermohonan();
-		//var_dump($desa);
+
+		$username = $this->uri->segment(3);
+
+		$desa = $this->desa->getPermohonan($username);
+
 		echo json_encode(array('result'=>$desa));
 	}
 }

@@ -10,13 +10,8 @@ class Desa_model extends CI_Model {
         return $this->db->get('pengumuman')->result_array();
     }
 
-    public function getPermohonan(){
-        $this->db->select('*');
-        $this->db->from('permohonan');
-        $this->db->join('warga','permohonan.nik = warga.nik','inner');
-        $this->db->join('surat','permohonan.kode_surat = surat.kode_surat','inner');
-        $this->db->where("warga.username", '1234567' );
-        $query = $this->db->get();
+    public function getPermohonan($username){
+        $query = $this->db->query("SELECT * FROM permohonan LEFT JOIN warga  ON permohonan.nik = warga.nik LEFT JOIN surat ON permohonan.kode_surat = surat.kode_surat WHERE permohonan.nik = '$username'");
         return $query->result_array();
     }
 
