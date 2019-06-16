@@ -16,7 +16,7 @@ class Desa_model extends CI_Model {
     }
 
     public function getLogin($username, $password){
-        $periksa = $this->db->get_where('warga',array('username'=>$username, 'password'=>$password));
+        $periksa = $this->db->get_where('warga',array('username'=> $username, 'password'=>$password));
 
         return $periksa->result_array();
     }
@@ -32,8 +32,7 @@ class Desa_model extends CI_Model {
         return $insert;
     }
 
-    // public function getDesa(){
-    //     $sql = $this->db->query("SELECT*FROM warga");
-    //     return $sql->result_array();
-    // }
+    public function ubahpassword($username, $password)
+    $update = $this->db->query("UPDATE username and password FROM warga WHERE username='$username', password= '$password'")
+
 }
