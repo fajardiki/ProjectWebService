@@ -32,6 +32,12 @@ class Desa_model extends CI_Model {
         return $insert;
     }
 
+    public function update_password($username,$password) {
+        $query = $this->db->query("UPDATE warga SET password = $password WHERE username = '$username'");
+
+        return $query;
+    }
+
     // public function getDesa(){
     //     $sql = $this->db->query("SELECT*FROM warga");
     //     return $sql->result_array();
